@@ -1,0 +1,3 @@
+language: objective-c  #1
+xcode_project: TravisTest.xcodeproj #3
+xcode_scheme: TravisTest #4
