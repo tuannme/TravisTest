@@ -37,7 +37,8 @@ platform :ios do
       app_identifier: "com.dream.TravisTest",
       development: true,
       readonly: true,
-      username: "tuanhut92@gmail.com",
+      username: ENV["FASTLANE_USER"],
+      keychain_password: ENV["FASTLANE_PASSWORD"],
     )
   end
 
@@ -46,6 +47,8 @@ platform :ios do
     cert(
       development: true,
       username: "tuanhut92@gmail.com",
+      username: ENV["FASTLANE_USER"],
+      keychain_password: ENV["FASTLANE_PASSWORD"],
     )
   end
 
@@ -60,22 +63,10 @@ platform :ios do
     )
   end
 
-  desc "Create a Beta build to Hockey"
-  lane :create_keychain do
-    create_keychain(
-        name: ENV["MATCH_KEYCHAIN_NAME"],
-        password: ENV["MATCH_KEYCHAIN_PASSWORD"],
-        default_keychain: true,
-        unlock: true,
-        timeout: 3600,
-        add_to_search_list: true
-      )
-  end
-
   desc "Build beta"
   lane :beta do
-    #get_certs
-    #get_provisioning
+    get_certs
+    get_provisioning
     build_dev_hockey
   end
 
