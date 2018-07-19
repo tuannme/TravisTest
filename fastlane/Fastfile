@@ -21,6 +21,14 @@ platform :ios do
     run_tests(scheme: "TravisTest")
   end
 
+  lane :download_certs do
+  match(
+    app_identifier: "com.dream.TravisTest",
+    git_url: "https://github.com/tuannme/TravisCert.git",
+    type: "development",
+    readonly: true,
+  )
+end
 
   desc "Build beta"
   lane :beta do
@@ -29,5 +37,5 @@ platform :ios do
             export_method: "development",
             include_bitcode: false)
   end
-        
+
 end
