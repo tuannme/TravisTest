@@ -5,4 +5,4 @@ xcode_sdk: iphonesimulator11.3
 osx_image: xcode9.4
 
 script:
-    - xcodebuild clean build -sdk iphonesimulator -project TravisTest.xcodeproj -scheme TravisTest CODE_SIGNING_REQUIRED=NO
+    - xcodebuild clean build -sdk iphonesimulator -workspace TravisTest.xcworkspace -scheme TravisTest CODE_SIGNING_REQUIRED=NO
