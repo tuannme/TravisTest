@@ -16,53 +16,30 @@
 default_platform(:ios)
 
 platform :ios do
-
-  desc "download certs"
-  lane :download_certs do
-    match(
-      app_identifier: "com.dream.TravisTest",
-      git_url: "https://github.com/tuannme/TravisCert.git",
-      type: "development",
-      readonly: true,
+  before_all do
+    create_keychain(
+      name: ENV["MATCH_KEYCHAIN_NAME"],
+      password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true
     )
   end
-
-  desc "get provisioning"
-  lane :get_provisioning do
-    sigh(
-      app_identifier: "com.dream.TravisTest",
-      development: true,
-      readonly: true,
-      #username: ENV["FASTLANE_USER"],
-      #keychain_password: ENV["FASTLANE_PASSWORD"],
-    )
-  end
-
-  desc "get certificates"
-  lane :get_certs do
-    cert(
-      development: true,
-      #username: ENV["FASTLANE_USER"],
-      #keychain_password: ENV["FASTLANE_PASSWORD"],
-    )
-  end
-
 
   desc "Create a Beta build to Hockey"
-  lane :build_dev_hockey do
-    build_app(
-      scheme: "TravisTest",
-      workspace: "TravisTest.xcworkspace",
-      export_method: "development",
-      include_bitcode: false
-    )
-  end
+    lane :build_dev_hockey do
+      build_app(
+        scheme: "TravisTest",
+        workspace: "TravisTest.xcworkspace",
+        export_method: "development",
+        include_bitcode: false
+      )
+    end
 
   desc "Build beta"
-  lane :beta do
-    get_certs
-    get_provisioning
-    build_dev_hockey
-  end
+    lane :beta do
+      build_dev_hockey
+    end
 
 end

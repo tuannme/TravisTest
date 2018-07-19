@@ -16,36 +16,11 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios tests
-```
-fastlane ios tests
-```
-test
-### ios download_certs
-```
-fastlane ios download_certs
-```
-download certs
-### ios get_provisioning
-```
-fastlane ios get_provisioning
-```
-get provisioning
-### ios get_certs
-```
-fastlane ios get_certs
-```
-get certificates
 ### ios build_dev_hockey
 ```
 fastlane ios build_dev_hockey
 ```
 Create a Beta build to Hockey
-### ios setup
-```
-fastlane ios setup
-```
-Setup
 ### ios beta
 ```
 fastlane ios beta
