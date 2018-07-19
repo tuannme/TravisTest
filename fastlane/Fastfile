@@ -62,9 +62,8 @@ platform :ios do
 
   desc "Build beta"
   lane :beta do
-    get_certs
-    #match development
-    get_provisioning
+    #get_certs
+    #get_provisioning
     build_dev_hockey
   end
 
