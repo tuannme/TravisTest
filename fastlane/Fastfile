@@ -37,8 +37,8 @@ platform :ios do
       app_identifier: "com.dream.TravisTest",
       development: true,
       readonly: true,
-      username: ENV["FASTLANE_USER"],
-      keychain_password: ENV["FASTLANE_PASSWORD"],
+      #username: ENV["FASTLANE_USER"],
+      #keychain_password: ENV["FASTLANE_PASSWORD"],
     )
   end
 
@@ -46,9 +46,8 @@ platform :ios do
   lane :get_certs do
     cert(
       development: true,
-      username: "tuanhut92@gmail.com",
-      username: ENV["FASTLANE_USER"],
-      keychain_password: ENV["FASTLANE_PASSWORD"],
+      #username: ENV["FASTLANE_USER"],
+      #keychain_password: ENV["FASTLANE_PASSWORD"],
     )
   end
 

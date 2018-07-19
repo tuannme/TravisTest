@@ -1,6 +1,4 @@
 app_identifier "com.dream.TravisTest" # The bundle identifier of your app
-# apple_id "tuanhut92@gmail.com" # Your Apple email address
-
 
 # For more information about the Appfile, see:
 #     https://docs.fastlane.tools/advanced/#appfile
