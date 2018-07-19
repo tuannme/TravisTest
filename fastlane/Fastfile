@@ -16,10 +16,6 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "test"
-  lane :tests do
-    run_tests(scheme: "TravisTest")
-  end
 
   desc "download certs"
   lane :download_certs do
