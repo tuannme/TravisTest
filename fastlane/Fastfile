@@ -20,4 +20,14 @@ platform :ios do
   lane :tests do
     run_tests(scheme: "TravisTest")
   end
+
+
+  desc "Build beta"
+  lane :beta do
+  build_app(scheme: "TravisTest",
+            workspace: "TravisTest.xcworkspace",
+            export_method: "development",
+            include_bitcode: false)
+  end
+        
 end
