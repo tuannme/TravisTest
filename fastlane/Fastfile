@@ -27,6 +27,27 @@ platform :ios do
     )
   end
 
+
+  desc "get provisioning"
+  lane :get_provisioning do
+    sigh(
+      app_identifier: "com.dream.TravisTest",
+      development: true,
+      readonly: true,
+      username: ENV["MATCH_KEYCHAIN_NAME"],
+      keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+    )
+  end
+
+  desc "get certificates"
+  lane :get_certs do
+    cert(
+      development: true,
+      username: ENV["MATCH_KEYCHAIN_NAME"],
+      keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+    )
+  end
+
   desc "Create a Beta build to Hockey"
     lane :build_dev_hockey do
       build_app(
@@ -39,6 +60,8 @@ platform :ios do
 
   desc "Build beta"
     lane :beta do
+      get_certs
+      get_provisioning
       build_dev_hockey
     end
 
