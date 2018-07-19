@@ -31,11 +31,24 @@ platform :ios do
     )
   end
 
-  desc "Build beta"
-  lane :beta do
-    download_certs
-    build_dev_hockey
+  desc "get provisioning"
+  lane :get_provisioning do
+    sigh(
+      app_identifier: "com.dream.TravisTest",
+      development: true,
+      readonly: true,
+      username: "tuanhut92@gmail.com",
+    )
   end
+
+  desc "get certificates"
+  lane :get_certs do
+    cert(
+      development: true,
+      username: "tuanhut92@gmail.com",
+    )
+  end
+
 
   desc "Create a Beta build to Hockey"
   lane :build_dev_hockey do
@@ -45,6 +58,14 @@ platform :ios do
       export_method: "development",
       include_bitcode: false
     )
+  end
+
+  desc "Build beta"
+  lane :beta do
+    get_certs
+    #match development
+    get_provisioning
+    build_dev_hockey
   end
 
 end
