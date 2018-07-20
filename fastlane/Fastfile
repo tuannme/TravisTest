@@ -61,11 +61,15 @@ platform :ios do
 
   desc "Create a Beta build to Hockey"
     lane :build_dev_hockey do
-      build_app(
-        scheme: "TravisTest",
-        workspace: "TravisTest.xcworkspace",
-        export_method: "development",
-        include_bitcode: false
+      #build_app(
+      #  scheme: "TravisTest",
+      #  workspace: "TravisTest.xcworkspace",
+      #  export_method: "development",
+      #  include_bitcode: false
+      #)
+      gym(
+      configuration: "Debug",
+      export_method: "development",
       )
     end
 
