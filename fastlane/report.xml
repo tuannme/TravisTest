@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="00: default_platform" time="0.009422">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="01: Switch to ios download_certs lane" time="0.001208">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="02: match" time="2.796398">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="03: Switch to ios build_dev lane" time="0.001325">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="04: gym" time="198.683749">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="05: Switch to ios submit_hockey lane" time="0.003395">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="06: hockey" time="5.887415">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="07: last_git_commit" time="0.173594">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="08: last_git_commit" time="0.093298">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="09: get_ipa_info_plist_value" time="0.024651">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="10: get_ipa_info_plist_value" time="0.017557">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="11: slack" time="0.562687">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>

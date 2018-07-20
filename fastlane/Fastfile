@@ -27,7 +27,6 @@ platform :ios do
   #  )
   #end
 
-
   desc "get provisioning"
   lane :get_provisioning do
     sigh(
@@ -54,29 +53,50 @@ platform :ios do
       app_identifier: "com.dream.TravisTest",
       git_url: "https://github.com/tuannme/Certs.git",
       type: "development",
-      git_user_email: ENV["GIT_USER"],
+      #git_user_email: ENV["GIT_USER"],
       readonly: true,
     )
   end
 
-  desc "Create a Beta build to Hockey"
-    lane :build_dev_hockey do
+  desc "Create a Beta build"
+  lane :build_dev do
       #build_app(
       #  scheme: "TravisTest",
       #  workspace: "TravisTest.xcworkspace",
       #  export_method: "development",
       #  include_bitcode: false
       #)
-      gym(
-      configuration: "Debug",
-      export_method: "development",
-      )
-    end
+    gym(
+    configuration: "Debug",
+    export_method: "development",
+    )
+  end
+
+  desc "Submit to Hockey"
+  lane :submit_hockey do
+    hockey(api_token: "51bee51aa68c4ee6a1f324e7edcb1df2")
+    message = last_git_commit[:message]
+    commit_hash = last_git_commit[:commit_hash]
+    version = get_ipa_info_plist_value(key: "CFBundleShortVersionString")
+    build_number = get_ipa_info_plist_value(key: "CFBundleVersion")
+    slack(
+      channel: "#ios_ci",
+      slack_url: "https://hooks.slack.com/services/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",
+      default_payloads: [],
+      payload: {
+        'Commit Message' => message,
+        'Commit Hash' => commit_hash,
+        'Version' => "#{version} (#{build_number})",
+        'Download'=> lane_context[SharedValues::HOCKEY_DOWNLOAD_LINK],
+      }
+    )
+  end
 
   desc "Build beta"
-    lane :beta do
-      download_certs
-      build_dev_hockey
-    end
+  lane :beta do
+    download_certs
+    build_dev
+    submit_hockey
+  end
 
 end

@@ -26,11 +26,21 @@ get provisioning
 fastlane ios get_certs
 ```
 get certificates
-### ios build_dev_hockey
+### ios download_certs
 ```
-fastlane ios build_dev_hockey
+fastlane ios download_certs
 ```
-Create a Beta build to Hockey
+Download certificates and provisioning profiles
+### ios build_dev
+```
+fastlane ios build_dev
+```
+Create a Beta build
+### ios submit_hockey
+```
+fastlane ios submit_hockey
+```
+Submit to Hockey
 ### ios beta
 ```
 fastlane ios beta
