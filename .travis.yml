@@ -1,8 +1,0 @@
-language: objective-c
-xcode_workspace: TravisTest.xcworkspace
-xcode_scheme: TravisTest
-xcode_sdk: iphonesimulator11.3
-osx_image: xcode9.4
-
-script:
-- fastlane beta
