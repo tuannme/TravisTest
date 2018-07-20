@@ -16,6 +16,17 @@
 default_platform(:ios)
 
 platform :ios do
+  #before_all do
+  #  create_keychain(
+  #    name: ENV["MATCH_KEYCHAIN_NAME"],
+  #    password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+  #    default_keychain: true,
+  #    unlock: true,
+  #    timeout: 3600,
+  #    add_to_search_list: true
+  #  )
+  #end
+
 
   desc "get provisioning"
   lane :get_provisioning do
@@ -34,6 +45,17 @@ platform :ios do
       development: true,
       username: ENV["MATCH_KEYCHAIN_NAME"],
       keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+  )
+  end
+
+  desc "Download certificates and provisioning profiles"
+  lane :download_certs do
+    match(
+      app_identifier: "com.dream.TravisTest",
+      git_url: "git@github.com:tuannme/TravisCert.git",
+      type: "development",
+      git_user_email: ENV["GIT_USER"],
+      readonly: true,
     )
   end
 
@@ -49,8 +71,7 @@ platform :ios do
 
   desc "Build beta"
     lane :beta do
-      get_certs
-      get_provisioning
+      download_certs
       build_dev_hockey
     end
 
