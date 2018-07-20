@@ -1,4 +1,4 @@
-git_url("https://github.com/tuannme/TravisCert.git")
+git_url("https://github.com/tuannme/Certs.git")
 
 type("development") # The default type, can be: appstore, adhoc, enterprise or development
 

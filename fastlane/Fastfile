@@ -34,8 +34,8 @@ platform :ios do
       app_identifier: "com.dream.TravisTest",
       development: true,
       readonly: true,
-      username: ENV["MATCH_KEYCHAIN_NAME"],
-      keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+      username: ENV["MATCH_USERNAME"],
+      keychain_password: ENV["MATCH_PASSWORD"],
     )
   end
 
@@ -43,8 +43,8 @@ platform :ios do
   lane :get_certs do
     cert(
       development: true,
-      username: ENV["MATCH_KEYCHAIN_NAME"],
-      keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+      username: ENV["MATCH_USERNAME"],
+      keychain_password: ENV["MATCH_PASSWORD"],
   )
   end
 
@@ -52,7 +52,7 @@ platform :ios do
   lane :download_certs do
     match(
       app_identifier: "com.dream.TravisTest",
-      git_url: "git@github.com:tuannme/TravisCert.git",
+      git_url: "git@github.com:tuannme/Certs.git",
       type: "development",
       git_user_email: ENV["GIT_USER"],
       readonly: true,
