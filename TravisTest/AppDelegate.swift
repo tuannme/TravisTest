@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  TravisTest
 //
-//  Created by Nguyen Manh Tuan on 7/8/18.
-//  Copyright © 2018 Nguyen Manh Tuan. All rights reserved.
+//  Created by nguyen.manh.tuanb on 7/20/18.
+//  Copyright © 2018 nguyen.manh.tuanb. All rights reserved.
 //
 
 import UIKit
