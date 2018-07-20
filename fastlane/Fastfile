@@ -52,7 +52,7 @@ platform :ios do
   lane :download_certs do
     match(
       app_identifier: "com.dream.TravisTest",
-      git_url: "git@github.com:tuannme/Certs.git",
+      git_url: "https://github.com/tuannme/Certs.git",
       type: "development",
       git_user_email: ENV["GIT_USER"],
       readonly: true,
