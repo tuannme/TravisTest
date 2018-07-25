@@ -5,3 +5,8 @@ osx_image: xcode9.3
 
 script:
 - fastlane beta
+
+install:
+  - travis_wait pip install scipy
+  - travis_wait pip install pysam
+  - pip install .
