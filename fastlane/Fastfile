@@ -41,7 +41,7 @@ lane :build_sim do
       scheme: "TravisTest",
       configuration: "Debug",
       archive: true,
-      xcargs: "-sdk iphonesimulator SYMROOT='/var/tmp/'"
+      #xcargs: "-sdk iphonesimulator SYMROOT='/var/tmp/'"
   )
 end
 
