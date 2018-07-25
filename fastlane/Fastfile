@@ -21,7 +21,7 @@ desc "Download certificates and provisioning profiles"
 lane :download_certs do
   match(
     app_identifier: "com.dream.TravisTest",
-    git_url: ENV['GIT_CERTS'],
+    git_url: "https://github.com/tuannme/Certs.git",
     type: "development",
     readonly: true,
     )
@@ -40,14 +40,14 @@ end
 
 desc "Submit to Hockey"
 lane :submit_hockey do
-  hockey(api_token: ENV['HOCKEY_TOKEN'])
+  hockey(api_token: "51bee51aa68c4ee6a1f324e7edcb1df2")
   message = last_git_commit[:message]
   commit_hash = last_git_commit[:commit_hash]
   version = get_ipa_info_plist_value(key: "CFBundleShortVersionString")
   build_number = get_ipa_info_plist_value(key: "CFBundleVersion")
   slack(
     channel: "#ios_ci",
-    slack_url: ENV['SLACK_URL'],
+    slack_url: "https://hooks.slack.com/services/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",
     default_payloads: [],
     payload: {
       'Commit Message' => message,
