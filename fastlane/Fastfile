@@ -36,14 +36,22 @@ lane :build_dev do
 end
 
 desc "Build Simulator"
-lane :build_sim do
+lane :build_simulator do
   xcbuild(
       scheme: "TravisTest",
       configuration: "Debug",
-      archive: true,
-      #xcargs: "-sdk iphonesimulator SYMROOT='/var/tmp/'"
+      xcargs: "-sdk iphonesimulator SYMROOT='/var/tmp/'"
   )
 end
+
+desc "Build Beta"
+lane :build_beta do
+  gym(scheme: "TravisTest",
+      configuration: "Beta",
+      export_method: "development"
+  )
+end
+
 
 desc "Submit to Hockey"
 lane :submit_hockey do
@@ -68,7 +76,7 @@ end
 desc "Build beta"
 lane :beta do
   download_certs
-  build_sim
+  build_beta
   submit_hockey
 end
 
