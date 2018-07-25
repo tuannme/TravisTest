@@ -71,7 +71,7 @@ desc "Build beta"
 lane :beta do
   download_certs
   build_sim
-  submit_hockey
+  #submit_hockey
 end
 
 end
