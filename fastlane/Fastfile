@@ -44,15 +44,6 @@ lane :build_simulator do
   )
 end
 
-desc "Build Beta"
-lane :build_beta do
-  gym(scheme: "TravisTest",
-      configuration: "Beta",
-      export_method: "development"
-  )
-end
-
-
 desc "Submit to Hockey"
 lane :submit_hockey do
   hockey(api_token: "51bee51aa68c4ee6a1f324e7edcb1df2")
@@ -76,7 +67,7 @@ end
 desc "Build beta"
 lane :beta do
   download_certs
-  build_beta
+  build_dev
   submit_hockey
 end
 
