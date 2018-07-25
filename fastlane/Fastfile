@@ -39,7 +39,7 @@ lane :build_dev do
 end
 
 desc "Build Simulator"
-lane: build_sim do
+lane :build_sim do
   xcbuild(
       scheme: "TravisTest",
       configuration: "Debug",
