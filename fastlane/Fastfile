@@ -32,9 +32,6 @@ lane :build_dev do
   gym(
   configuration: "Debug",
   export_method: "development",
-  clean: true,
-  silent: false,
-  include_bitcode: false,
   )
 end
 
@@ -43,6 +40,7 @@ lane :build_sim do
   xcbuild(
       scheme: "TravisTest",
       configuration: "Debug",
+      archive: true,
       xcargs: "-sdk iphonesimulator SYMROOT='/var/tmp/'"
   )
 end
@@ -71,7 +69,7 @@ desc "Build beta"
 lane :beta do
   download_certs
   build_sim
-  #submit_hockey
+  submit_hockey
 end
 
 end
