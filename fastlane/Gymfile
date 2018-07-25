@@ -1,0 +1,3 @@
+clean true
+scheme "OzTaxReturn"
+xcargs "-jobs=`sysctl -n hw.ncpu`"
