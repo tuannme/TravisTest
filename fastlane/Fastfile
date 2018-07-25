@@ -38,6 +38,15 @@ lane :build_dev do
   )
 end
 
+desc "Build Simulator"
+lane: build_sim do
+  xcbuild(
+      scheme: "TravisTest",
+      configuration: "Debug",
+      xcargs: "-sdk iphonesimulator SYMROOT='/var/tmp/'"
+  )
+end
+
 desc "Submit to Hockey"
 lane :submit_hockey do
   hockey(api_token: "51bee51aa68c4ee6a1f324e7edcb1df2")
@@ -61,7 +70,7 @@ end
 desc "Build beta"
 lane :beta do
   download_certs
-  build_dev
+  build_sim
   submit_hockey
 end
 
